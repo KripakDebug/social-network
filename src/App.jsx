@@ -61,7 +61,7 @@ const AppContainer = compose(
 )(App);
 
 const SamuraiJSApp = (props) => {
- return <BrowserRouter basemname={`/${process.env.PUBLIC_URL}`}>
+ return <BrowserRouter>
       <Provider store={store}>
           <AppContainer  />
         </Provider>
