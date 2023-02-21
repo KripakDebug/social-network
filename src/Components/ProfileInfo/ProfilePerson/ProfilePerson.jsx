@@ -42,23 +42,26 @@ const ProfilePerson = (props) => {
           </label>
           </div>}
           </div>
-          <div className={c.personInfo}>
-            <div className={c.name}>{props.profile.fullName}</div>
-            <ProfileStatusWithHooks status={props.status} UpdateStatus={props.UpdateStatus}/>
-            <br />
-            <div className={c.aboutMe}><b>About me:</b> {props.profile.aboutMe}</div>   
-                  <ul className={c.siteList}>
-                      <b>Contacts</b>
-                      {Object.keys(props.profile.contacts).map(key => {
-                         return <Contacts key={key} contactTitle={key} contactValue={props.profile.contacts[key]}  />
-                      })}
-                  </ul>
-            
-          </div>
+          <ProfileData {...props}/>
         </div>
     </div>
     )
 
+}
+const ProfileData = (props) => {
+ return <div className={c.personInfo}>
+  <div className={c.name}>{props.profile.fullName}</div>
+  <ProfileStatusWithHooks status={props.status} UpdateStatus={props.UpdateStatus}/>
+  <br />
+  <div className={c.aboutMe}><b>About me:</b> {props.profile.aboutMe}</div>   
+        <ul className={c.siteList}>
+            <b>Contacts</b>
+            {Object.keys(props.profile.contacts).map(key => {
+               return <Contacts key={key} contactTitle={key} contactValue={props.profile.contacts[key]}  />
+            })}
+        </ul>
+  
+</div>
 }
 const Contacts = ({contactTitle, contactValue}) => {
     return <li className={c.contact}><b>{contactTitle}</b>: {contactValue}</li>
