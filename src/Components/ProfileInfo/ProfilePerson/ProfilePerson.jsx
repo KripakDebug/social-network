@@ -29,8 +29,8 @@ const ProfilePerson = (props) => {
             src={props.profile.photos.large !== null ? props.profile.photos.large : photo}
             alt="loh"
           />
-          <div className={c.sendPhoto}>
-          {props.owner && <input type={'file'} id='sendFile' onChange={onMainPhotoSelected}/>}
+        {props.owner && <div className={c.sendPhoto}>
+          <input type={'file'} id='sendFile' onChange={onMainPhotoSelected}/>
           <label for='sendFile'>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
 <title>image</title>
@@ -40,7 +40,7 @@ const ProfilePerson = (props) => {
 </svg>
 
           </label>
-          </div>
+          </div>}
           </div>
           <div className={c.personInfo}>
             <div className={c.name}>{props.profile.fullName}</div>
