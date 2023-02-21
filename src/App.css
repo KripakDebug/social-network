@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
 }
+body{
+  background: #000;
+}
 .wrapper{
   display: grid;
   margin: 0 auto;
@@ -18,6 +21,8 @@
 
 
 .wrapper-content{
+  padding: 10px;
+  color: #fff;
   grid-area: info;
-  background: green;
+  background: rgb(40, 41, 40);
 }

@@ -1,6 +1,6 @@
 .dialogs{
     display: flex;
-    height: 100%;
+    height: 500px;
 }
 .user {
     list-style: none;
@@ -8,12 +8,14 @@
 }
 
 .active{
-    color: rgb(83, 75, 75);
+    color: rgb(0, 0, 0);
 }
 .dialogs-list{
-    background: rgb(194, 42, 42);
+    background: rgb(128, 128, 128);
     display: flex;
     padding: 25px;
+    font-size: 16px;
+    font-weight: bold;
     width: 200px;
     flex-direction: column;
 }
@@ -41,7 +43,7 @@ bottom: 0;
 width: 100%;
 }
 .sendMessage textarea {
-    width: 90%;
+    width: 500px;
     display: flex;
     resize: vertical; 
     font-size: 18px;

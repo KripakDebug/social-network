@@ -6,6 +6,7 @@ const ProfileInfo = (props) => {
     return (
      <div>
         <ProfilePerson savePhoto={props.savePhoto} owner={props.owner} profile={props.profile} status={props.status} UpdateStatus={props.UpdateStatus} />
+        <br />
         <MyPostsContainer />
       </div>
     )

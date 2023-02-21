@@ -3,3 +3,28 @@
     width: 300px;
 
 }
+.contact{
+    list-style: none;
+    margin: 5px 0px;
+    margin-left: 10px;
+}
+.sendPhoto{
+    position: absolute;
+}
+.sendPhoto input {
+    display: none;
+}
+.sendPhoto label svg {
+    margin-top: 5px;
+    transition: .3s;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.sendPhoto label svg:hover {
+    transition: .3s;
+    fill: #fff;
+}
+
+.wrapPhoto{
+    display: flex;
+}
