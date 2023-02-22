@@ -63,7 +63,7 @@ const ProfilePerson = (props) => {
 const ProfileData = (props) => {
  return <div className={c.personInfo}>
   <div className={c.infoPerson}>{props.profile.fullName}</div>
-  <ProfileStatusWithHooks status={props.status} UpdateStatus={props.UpdateStatus}/>
+  <ProfileStatusWithHooks status={props.status} owner={props.owner} UpdateStatus={props.UpdateStatus}/>
   <br />
   <div className={c.infoPerson}><b>About me:</b> {props.profile.aboutMe}</div>   
   <div className={c.infoPerson}><b>Job Description:</b> {props.profile.lookingForAJobDescription}</div>   
