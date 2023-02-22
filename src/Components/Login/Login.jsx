@@ -16,7 +16,7 @@ const LoginForm = (props) => {
            {CreateField(null, 'rememberMe', Input, null, 'checkbox', "remember me")}
             
             {props.captcha && <div>
-                <img src={props.captcha}/>
+                <img src={props.captcha} alt='captcha'/>
                 {CreateField('Symbols from image', 'captcha', Input, [required], 'text')}
                 </div>}
            
