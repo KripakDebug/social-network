@@ -53,14 +53,19 @@ export const AuthAPI = {
     GetPMyLogin() {
         return (instanse.get('auth/me').then(response => response.data));
     },
-    LoginMe(email, password, rememberMe = false) { 
+    LoginMe(email, password, rememberMe = false, captcha = null) { 
         return   (
-            instanse.post('auth/login', {email, password, rememberMe})
+            instanse.post('auth/login', {email, password, rememberMe, captcha})
             );
     },
     LogoutMe() {
         return (instanse.delete('auth/login'));
     },
+}
+export const SecurityAPI = {
+    GetCaptcha() {
+        return instanse.get('security/get-captcha-url')
+    }
 }
 
 
