@@ -1,10 +1,16 @@
-import React from "react";
+import React, {  useState } from "react";
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileFormData from "../ProfileFormData";
 import photo from './../../../assets/image/user.png'
 import c from './ProfilePerson.module.css'
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfilePerson = (props) => {
+
+  
+
+
+ const [editMode, setEditMode] = useState(false);
  if(!props.profile) {
     return <Preloader/>
  }
@@ -14,14 +20,17 @@ const ProfilePerson = (props) => {
       props.savePhoto(e.target.files[0]);
      }
  }
+
+ const onSubmit =  (formData) => {
+      props.saveProfile(formData).then(() => {
+        
+        setEditMode(false);
+      });
+        
+      }  
  
     return (   
     <div>
-        <div className={c['profile-info']}>
-      
-        </div>
-
-
         <div className={c.person}>
           <div className={c.wrapPhoto}>
           <img
@@ -38,32 +47,38 @@ const ProfilePerson = (props) => {
 <path d="M26 9c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"></path>
 <path d="M28 26h-24v-4l7-12 8 10h2l7-6z"></path>
 </svg>
-
           </label>
-          </div>}
-          </div>
-          <ProfileData {...props}/>
+      </div>}
+    </div>
+        
+          {editMode ?  <ProfileFormData  profile={props.profile}  initialValues={props.profile} onSubmit={onSubmit}  /> : <ProfileData  {...props}/>}
         </div>
+       {!editMode && props.owner ? <button onClick={() => setEditMode(true)}>Edit Mode</button> : null } 
     </div>
     )
 
 }
+
+
 const ProfileData = (props) => {
  return <div className={c.personInfo}>
-  <div className={c.name}>{props.profile.fullName}</div>
+  <div className={c.infoPerson}>{props.profile.fullName}</div>
   <ProfileStatusWithHooks status={props.status} UpdateStatus={props.UpdateStatus}/>
   <br />
-  <div className={c.aboutMe}><b>About me:</b> {props.profile.aboutMe}</div>   
+  <div className={c.infoPerson}><b>About me:</b> {props.profile.aboutMe}</div>   
+  <div className={c.infoPerson}><b>Job Description:</b> {props.profile.lookingForAJobDescription}</div>   
         <ul className={c.siteList}>
             <b>Contacts</b>
             {Object.keys(props.profile.contacts).map(key => {
                return <Contacts key={key} contactTitle={key} contactValue={props.profile.contacts[key]}  />
             })}
         </ul>
-  
+        
 </div>
 }
+
+
 const Contacts = ({contactTitle, contactValue}) => {
-    return <li className={c.contact}><b>{contactTitle}</b>: {contactValue}</li>
+    return <li className={c.contact}><b>{contactTitle}</b>: <a target="_blank" rel="noreferrer" href={contactValue}>{contactValue}</a></li>
 }
 export default ProfilePerson;

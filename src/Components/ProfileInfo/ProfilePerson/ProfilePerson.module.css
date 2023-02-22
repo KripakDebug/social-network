@@ -3,10 +3,19 @@
     width: 300px;
 
 }
+.personInfo{
+    margin-left: 10px;
+}
+.infoPerson{
+    margin: 10px 0px;
+}
 .contact{
     list-style: none;
     margin: 5px 0px;
     margin-left: 10px;
+}
+.person {
+    display: flex;
 }
 .sendPhoto{
     position: absolute;
