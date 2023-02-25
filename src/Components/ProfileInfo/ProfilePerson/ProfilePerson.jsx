@@ -5,6 +5,7 @@ import photo from './../../../assets/image/user.png'
 import c from './ProfilePerson.module.css'
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import {ToTopOutlined} from "@ant-design/icons";
+import {Image} from "antd";
 
 const ProfilePerson = (props) => {
 
@@ -34,8 +35,7 @@ const ProfilePerson = (props) => {
     <div>
         <div className={c.person}>
           <div className={c.wrapPhoto}>
-          <img
-            className={c.userPhoto}
+          <Image
             src={props.profile.photos.large !== null ? props.profile.photos.large : photo}
             alt="loh"
           />

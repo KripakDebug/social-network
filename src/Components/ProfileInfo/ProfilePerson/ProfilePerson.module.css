@@ -1,8 +1,4 @@
-.userPhoto {
-    height: 300px;
-    width: 300px;
 
-}
 .personInfo{
     margin-left: 10px;
 }
@@ -37,5 +33,7 @@
 }
 
 .wrapPhoto{
+    height: 300px;
+    width: 300px;
     display: flex;
 }
